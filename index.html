@@ -7,60 +7,221 @@ Time : 4:19 AM
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Video Speed</title>
-        <style>
-            body{
-                background: #000;
-                font-family: Arial, Helvetica, sans-serif;
-                /* font-size: 1em; */
-                height: 100vh;
-                margin:0;
-                padding: 0;
-            }
-            nav{
-                background: rgb(41, 41, 41);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                height: 2rem;
-            }
-            nav > div {
-                padding: .5em;
-            }
-            nav input {
-                width: 3em;
-            }
-            .main{
-                height: calc(100% - 2rem);
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                align-items: center;
-            }
-            video{
-                /* height: 100%; */
-                width: 100%;
-    
-            }
-    
-        </style>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Speed</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            background: #000;
+            font-family: Arial, Helvetica, sans-serif;
+            /* font-size: 1em; */
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: rgb(41, 41, 41);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 2rem;
+        }
+
+        nav>div {
+            padding: .5em;
+        }
+
+        nav input {
+            width: 3em;
+        }
+
+        .main {
+            height: calc(100% - 2rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        video {
+            /* height: 100%; */
+            width: 100%;
+
+        }
+    </style>
+</head>
+
 <body>
-    <nav>
-        <div style="font-weight: bold;">
-            <span style="color: #ff2b2b;">V</span>
-            <span style="color: rgb(250, 250, 250);">S</span>
+    <header>
+        <div class="header-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+            </svg>Student<span>Info</span>
         </div>
-        <div id="player_speed">
-            <button id="speed_down">&lt;</button>
-            <input type="number" id="speed_input">
-            <button id="speed_up">&gt;</button>
+        <div class="search-area">
+            <input type="text" class="search-input" placeholder="Search Roll">
+            <button class="v-s">Down</button>
+            <button class="v-s">5.0</button>
+            <button class="v-s">Up</button>
         </div>
-    </nav>
+    </header>
+    <div id="navbar">
+        <nav class="nav">
+            <div>
+                <div class="nav__brand">
+                    <span class="nav__toggle" id="nav-toggle"><svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" fill="white" width="18px" height="18px">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+                        </svg></span>
+                    <a href="#" class="nav__logo">
+                        <div class="header-logo">Student<span>Info</span></div>
+                    </a>
+                </div>
+                <div class="nav__list">
+                    <a href="index.html" class="nav__link active">
+                        <span class="nav__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"
+                                width="18px" height="18px">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                            </svg></span>
+                        <span class="nav__name">Main</span>
+                    </a>
+
+                    <div class="nav__link collapse" data-in="dc">
+                        <span class="nav__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"
+                                width="18px" height="18px">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                            </svg></span>
+                        <span class="nav__name">Dhaka College</span>
+
+                        <span class="collapse__link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="white" width="18px" height="18px">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                            </svg></span>
+
+                        <ul class="collapse__menu">
+                            <a style="display:none;" href="index.html?in=dc&xm=hsc_2021_1st_year_science_midterm"
+                                class="collapse__sublink" data-db='dc' data-xm="hsc_2021_1st_year_science_midterm">Half
+                                Yearly HSC-2021</a>
+                            <a href="index.html?in=dc&xm=hsc_2021_1st_year_science_final_2" class="collapse__sublink"
+                                data-db='dc' data-xm="hsc_2021_1st_year_science_final_2" data-is_rank_given=1
+                                data-xm_name='20-Aug-2020 To 09-Sep-2020 XI Year Final (1st Year HSC - Science Session :2019-2020)'>Final
+                                HSC-2021</a>
+                        </ul>
+                    </div>
+                    <div class="nav__link collapse" data-in="rc">
+                        <span class="nav__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"
+                                width="18px" height="18px">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                            </svg></span>
+                        <span class="nav__name">Rajshahi College</span>
+
+                        <span class="collapse__link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="white" width="18px" height="18px">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                            </svg></span>
+
+                        <ul class="collapse__menu">
+                            <a href="index.html?in=rc&xm=hsc_2021_1st_year_science_midterm" class="collapse__sublink"
+                                data-db='rc' data-xm="hsc_2021_1st_year_science_midterm"
+                                data-xm_name="14-Jan-2020 To 12-Feb-2020 Half Yearly (1st Year HSC - Science Session :2019-2020)">Half
+                                Yearly HSC-2021</a>
+                            <a href="index.html?in=rc&xm=hsc_2021_1st_year_science_final" class="collapse__sublink"
+                                data-db='rc' data-xm="hsc_2021_1st_year_science_final" data-is_rank_given=1
+                                data-xm_name="20-Aug-2020 To 12-Sep-2020 Year Final Exam (1st Year HSC - Science Session :2019-2020)">Final
+                                HSC-2021</a>
+                        </ul>
+                    </div>
+                    <div class="nav__link collapse" data-in="cc">
+                        <span class="nav__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"
+                                width="18px" height="18px">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                            </svg></span>
+                        <span class="nav__name">Chittagonj College</span>
+
+                        <span class="collapse__link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="white" width="18px" height="18px">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                            </svg></span>
+
+                        <ul class="collapse__menu">
+                            <a href="index.html?in=cc&xm=hsc_2021_1st_year_science_midterm" class="collapse__sublink"
+                                data-db='cc' data-xm="hsc_2021_1st_year_science_midterm"
+                                data-xm_name="11-Nov-2019 To 27-Nov-2019 Half Yearly (1st Year HSC - Science Session :2019-2020)">Half
+                                Yearly HSC-2021</a>
+                            <a href="index.html?in=cc&xm=hsc_2021_1st_year_science_final" class="collapse__sublink"
+                                data-db='cc' data-xm="hsc_2021_1st_year_science_final"
+                                data-xm_name="20-Sep-2020 To 30-Sep-2020 Year Final Exam (1st Year HSC - Science Session :2019-2020)">Final
+                                HSC-2021</a>
+                        </ul>
+                    </div>
+                    <div class="nav__link collapse" data-in="gccc">
+                        <span class="nav__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"
+                                width="18px" height="18px">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                            </svg></span>
+                        <span class="nav__name">Chittagonj City College</span>
+
+                        <span class="collapse__link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="white" width="18px" height="18px">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                            </svg></span>
+
+                        <ul class="collapse__menu">
+                            <a href="index.html?in=gccc&xm=hsc_2021_1st_year_science_midterm" data-db="gccc"
+                                data-xm="hsc_2021_1st_year_science_midterm" data-is_rank_given=1
+                                class="collapse__sublink">Half Yearly HSC-2021</a>
+                            <!-- <a href="#" class="collapse__sublink">Final HSC-2021</a> -->
+                        </ul>
+                    </div>
+                    <a href="#" class="nav__link" onclick="alert('Not added yet! - developer MUSH')">
+                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+                            fill="white" width="18px" height="18px">
+                            <g>
+                                <path d="M0,0h24v24H0V0z" fill="none" />
+                                <path
+                                    d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                            </g>
+                        </svg>
+                        <span class="nav__name">Settings</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- <a href="#" class="nav__link">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+                    fill="white" width="18px" height="18px">
+                    <g>
+                        <rect fill="none" height="24" width="24" />
+                    </g>
+                    <g>
+                        <path
+                            d="M11,7L9.6,8.4l2.6,2.6H2v2h10.2l-2.6,2.6L11,17l5-5L11,7z M20,19h-8v2h8c1.1,0,2-0.9,2-2V5c0-1.1-0.9-2-2-2h-8v2h8V19z" />
+                    </g>
+                </svg>
+                <span class="nav__name">Log Out</span>
+            </a> -->
+        </nav>
+    </div>
     <div class="main">
         <div>
             <input id="video_input" type="text" placeholder="Video Link">
@@ -69,10 +230,11 @@ Time : 4:19 AM
         <div>
             <input id="video_input_local" type="file" name="video_input_local">
         </div>
-        <video style="display: none;"  controls name="media" >
+        <video style="display: none;" controls name="media">
             <source src="" type="video/mp4">
         </video>
     </div>
 </body>
 <script src="./index.js"></script>
+
 </html>

@@ -15,7 +15,7 @@ button {
   font-family: inherit;
   font-weight: 900;
   color: #fff;
-  padding: 1rem .8rem;
+  padding: 1rem 0.8rem;
   background: #4d7cff;
   text-transform: uppercase;
 }
@@ -334,6 +334,10 @@ html {
 
 body {
   font-family: "Montserrat", sans-serif;
+  background: #000;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 body header {
@@ -573,6 +577,7 @@ body .main > div svg {
 }
 
 body .main video {
+  width: 100%;
   max-width: 1200px;
 }
 

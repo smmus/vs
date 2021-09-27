@@ -4,7 +4,7 @@
 /*===== GLOBAL VARS =====*/
 $fontFamily: "Montserrat", sans-serif;
 
-$navWidth: 90px;
+$navWidth: 0px;
 $navExpandWidth: 300px;
 
 $firstColor: #0c5df4;
@@ -47,6 +47,13 @@ button {
     padding: 1rem .8rem;
     background: $primaryColor;
     text-transform: uppercase;
+
+    
+    &.border_both_side{
+        border-right: 1px solid #fff ;
+        border-left: 1px solid #fff ;
+
+    }
 
     &.v-s {
         font-size: 0.9rem;
@@ -271,6 +278,8 @@ html {
 body {
     font-family: $fontFamily;
     // height: 100vh;
+
+    
     header {
         margin-left: $navWidth;
         position: relative;
@@ -324,7 +333,7 @@ body {
         height: 100%;
         background-color: $bgColor;
         color: $whiteColor;
-        padding: 1.5rem 1.5rem 2rem;
+        // padding: 1.5rem 1.5rem 2rem;
         transition: 0.5s;
         z-index: $zIndexUp;
 
@@ -426,22 +435,22 @@ body {
         }
     }
 
-    #main-div {
-        width: 60%;
-        .card {
-            .body {
-                margin-top: 0.5em;
-                margin-bottom: 0.5em;
-            }
-            .footer {
-                margin-top: 1em;
-            }
-            .img {
-                margin: 0 auto;
-                width: 60%;
-                height: 60%;
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & > div{
+            width: 80%;
+
+            svg {
+                width: 100%;
             }
         }
+
+        video {
+            max-width: 1200px;
+        }
+        
     }
 
     #main-container {

@@ -1,6 +1,7 @@
 window.onload = () => {
-
+    
     console.log("[Document Loaded]");
+    let video_el = document.getElementById('main_video');
 
     function videoSpeed(up = 1, n = .1, f = 1) {
 
@@ -43,7 +44,6 @@ window.onload = () => {
         console.log('[file changed]');
 
 
-        var video_el = document.getElementById('main_video');
 
         //hide and seek dom elements
         document.querySelector('.main div').style.display = "none";
@@ -66,28 +66,64 @@ window.onload = () => {
     }
 
 
-
-
-
-
-
-
-
-
-
+    function browseVideoLink(){
+        console.log('[FUNCTION browseVideoLink]');
+        console.log(document.getElementById("video_link_input").value);
+        
+        location.search = `?v=${document.getElementById("video_link_input").value}`;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // event listener to speed control button
     document.getElementById('video_speed_down').onclick = () => videoSpeed(0);
     document.getElementById('video_speed_up').onclick = () => videoSpeed();
-
+    
     // local video blob file
     var fileItem = document.getElementById('local_video_file_input');
-
+    
     fileItem.onchange = fileItemOnchange;
+    
+    // event browse video link button
+    document.getElementById("browseVideoLink").onclick = browseVideoLink;
+
+    
+    // ------------- if provided any link via url ---------------------
+    console.log(location.search);
+    if(location.search){
+        
+        console.log(location.search.substring(3));
+
+        //hide and seek dom elements
+        document.querySelector('.main div').style.display = "none";
+        video_el.style.display = "";
+
+        document.querySelector("video source").src = location.search.substring(3);
+
+        // load nd play
+        video_el.load();
+        video_el.onloadeddata = function () {
+            video_el.play();
+        }
+
+        return;
+    }
+    // ------------- if provided any link via url ---------------------
 
 
 
 
 
+
+
+    
+    
     // display none/block based on link provided or not
     // if (window.location.search != "") { //matlab kuch to hei :')
 

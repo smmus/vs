@@ -453,80 +453,7 @@ body {
         
     }
 
-    #main-container {
-        margin-left: $navWidth;
-        position: relative;
-        background-color: $containerBgColor;
-        padding: 0.4em;
-
-        height: calc(100% - 3rem);
-        display: flex;
-        justify-content: center;
-
-        #std_list {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            .card {
-                background: $whiteColor;
-                border-radius: 6px;
-                padding: 0.5em;
-                display: flex;
-                flex-direction: row;
-                //justify-content: space-between;
-                align-items: center;
-                min-width: 100%;
-                font-weight: 200;
-                margin: 0.3em 0em;
-
-                div {
-                    display: inline-block;
-                }
-
-                .std_img_small {
-                    img {
-                        height: 4rem;
-                        width: 4rem;
-                        border: 3px solid $lightDarkColor;
-                        border-radius: 50%;
-                    }
-                    margin-right: 1em;
-                }
-
-                .std_info_small {
-                    line-height: 2em;
-                }
-
-                &:hover {
-                    @include transition(background, 0.3s, ease);
-                    background: $lightDarkColor;
-                    cursor: pointer;
-                    font-weight: normal;
-                }
-            }
-        }
-
-        &.overlay {
-            pointer-events: none;
-            transition: all 500ms ease;
-
-            &::after {
-                content: "";
-                display: block;
-                position: absolute;
-                background: $darkoverlayColor;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                height: 100%;
-                pointer-events: none;
-                z-index: $zIndexMiddle;
-            }
-        }
-    }
+    
 }
 //==================media q==================
 $phone: 640px;
@@ -558,43 +485,6 @@ $desktop: 1024px;
         #navbar {
             width: 0;
             padding: 0;
-        }
-        #main-div {
-            width: 80%;
-            .card {
-                .img {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-        }
-        #main-container {
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            .card {
-                width: 100%;
-
-                & + .card {
-                    margin-top: 0.5em;
-                }
-                & > div {
-                    margin-top: 0.5em;
-                }
-                .img {
-                    display: none;
-                }
-
-                .btn-grp {
-                    flex-direction: row;
-                    justify-content: space-between;
-                    button {
-                        margin: 0;
-                    }
-                }
-            }
         }
     }
 }
